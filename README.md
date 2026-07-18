@@ -6,6 +6,7 @@ Day-to-day: **Python, JavaScript/Node.js, SQL** for building; Tableau and Power 
 
 ### Things I've built
 
+- **[kalshi-weather-bot](https://github.com/AwpDemon/kalshi-weather-bot)** — autonomous prediction-market trading bot that exploits systematic warm bias in NWS forecasts: 31-member GFS ensemble → rolling bias correction → bracket probabilities → quarter-Kelly sizing → limit orders on Kalshi. 98 tests, kill switch, settlement feedback loop; paper-validated at +9.8% over its first 10 days (sample size honestly labeled too small to prove the edge).
 - **[doctor-patient-portal](https://github.com/AwpDemon/doctor-patient-portal)** — full-stack healthcare portal: Node/Express/SQLite, 30+ REST endpoints, TOTP 2FA, role-based access control (doctor/patient/admin), rate-limited auth, and a 21-test Jest/Supertest suite running green in CI.
 - **[wispr-clone](https://github.com/AwpDemon/wispr-clone)** — push-to-talk voice dictation for Windows (Groq Whisper + Llama 3.1 cleanup). The fun part: a VAD watcher speculatively fires partial transcriptions during pauses so the common case lands with near-zero perceived latency. 42 pytest tests.
 - **[agent-chat-mcp](https://github.com/AwpDemon/agent-chat-mcp)** + **[agentchattr-remote](https://github.com/AwpDemon/agentchattr-remote)** — cross-machine message broker for AI coding agents. Claude Code instances on my desktop, laptop, and server send each other tasks and context through a central hub via MCP.
