@@ -1,30 +1,29 @@
 ### Hi, I'm Ali
 
-MIS student at the University of Georgia ('27), based in Athens / Atlanta, looking for a **Summer 2026 internship** — software engineering, automation/internal tools, or data. I'm the kind of MIS student who runs his own public-facing server: everything below is deployed, tested, and used daily, not portfolio filler.
+Management Information Systems student at the **University of Georgia, Terry College of Business** (class of 2027).
+I'm interested in **AI systems, data and analytics, and risk & insurance**, and I like projects where a
+number has to hold up under questioning: every repo below ships with tests, the commands to reproduce its
+results, and a limitations section. Where the data is synthetic, the README says so up front.
 
-Day-to-day: **Python, JavaScript/Node.js, SQL** for building; Tableau and Power BI when the deliverable is a dashboard; and a lot of AI-in-the-loop automation on my own infrastructure.
+### Featured projects
 
-### Things I've built
+| Project | What it is |
+|---|---|
+| [homelab-medic](https://github.com/AwpDemon/homelab-medic) | Self-healing Docker monitor: heuristics first, a local LLM for ambiguous failures, policy-gated restarts. On a held-out 30-incident eval, adding the LLM cut wrong restarts from 44% to 6%. |
+| [doctor-patient-portal](https://github.com/AwpDemon/doctor-patient-portal) | Node/Express patient portal from a MIST 4610 group project. I self-assessed it against NIST 800-53 and HIPAA 164.312, then fixed 19 control gaps with tests (MFA bypass, broken object-level access). 55 tests. |
+| [insurance-risk-model](https://github.com/AwpDemon/insurance-risk-model) | Auto-insurance scorecard backtested against logistic regression (AUC 0.83 each), with a model card and recalibration (Brier 0.117 → 0.077). Synthetic data. |
+| [retail-sql-analytics](https://github.com/AwpDemon/retail-sql-analytics) | 8-table PostgreSQL schema and 15 analytical queries, tested in CI. Query tuning measured with EXPLAIN ANALYZE on 100k orders (RFM query −68%). Synthetic data. |
+| [catastrophe-loss-analysis](https://github.com/AwpDemon/catastrophe-loss-analysis) | Insurance portfolio analytics: Welch, bootstrap and chi-squared tests on a Q3 loss-ratio spike, plus a hurricane Monte Carlo with excess-of-loss layer sizing. Synthetic data. |
+| [student-budget-powerbi](https://github.com/AwpDemon/student-budget-powerbi) | 11 Power BI DAX measures reproduced in DuckDB SQL and unit-tested (which caught a broken forecast measure). Synthetic data. |
+| [agent-chat-mcp](https://github.com/AwpDemon/agent-chat-mcp) / [agentchattr-remote](https://github.com/AwpDemon/agentchattr-remote) | An MCP server and a WebSocket daemon that let Claude Code instances on different machines exchange messages and tasks through a chat hub. |
+| [wispr-clone](https://github.com/AwpDemon/wispr-clone) | Push-to-talk dictation for Windows (Whisper + LLM cleanup) with speculative partial transcription on pauses. 42 tests. |
 
-- **[kalshi-weather-bot](https://github.com/AwpDemon/kalshi-weather-bot)** — autonomous prediction-market trading bot that exploits systematic warm bias in NWS forecasts: 31-member GFS ensemble → rolling bias correction → bracket probabilities → quarter-Kelly sizing → limit orders on Kalshi. 98 tests, kill switch, settlement feedback loop; paper-validated at +9.8% over its first 10 days (sample size honestly labeled too small to prove the edge).
-- **[doctor-patient-portal](https://github.com/AwpDemon/doctor-patient-portal)** — full-stack healthcare portal: Node/Express/SQLite, 30+ REST endpoints, TOTP 2FA, role-based access control (doctor/patient/admin), rate-limited auth, and a 21-test Jest/Supertest suite running green in CI.
-- **[wispr-clone](https://github.com/AwpDemon/wispr-clone)** — push-to-talk voice dictation for Windows (Groq Whisper + Llama 3.1 cleanup). The fun part: a VAD watcher speculatively fires partial transcriptions during pauses so the common case lands with near-zero perceived latency. 42 pytest tests.
-- **[agent-chat-mcp](https://github.com/AwpDemon/agent-chat-mcp)** + **[agentchattr-remote](https://github.com/AwpDemon/agentchattr-remote)** — cross-machine message broker for AI coding agents. Claude Code instances on my desktop, laptop, and server send each other tasks and context through a central hub via MCP.
-- **[homelab-medic](https://github.com/AwpDemon/homelab-medic)** — self-healing monitor for my 25-container homeserver: evidence collection, heuristics-first diagnosis with a local LLM for ambiguous failures, policy-gated auto-restart (cooldowns + daily heal budgets), and auto-generated markdown postmortems. Zero runtime dependencies, 65 tests.
-- **[homelab](https://github.com/AwpDemon/homelab)** — public services behind a Cloudflare Tunnel with Authentik SSO, a Minecraft server kept online through an L7 attack, and a local LLM endpoint driving my automations. Sanitized configs + a stdlib-only health checker included.
-- **[mc-afk](https://github.com/AwpDemon/mc-afk)** — multi-account Minecraft keep-alive bot with a web dashboard, Microsoft OAuth login, auto-reconnect, Discord alerts, and Docker deployment.
+### Coming soon
 
-### Data & analytics
+Captive insurance feasibility model · auto-insurance pricing GLM with model-risk validation ·
+NFIP flood-claims warehouse (dbt + DuckDB) · cyber risk quantification · ITGC audit lab ·
+insurance policy Q&A with retrieval evaluation.
 
-The stats layer behind the dashboards — backtesting, calibration, significance testing — is where I've put real effort:
+### Contact
 
-- **[catastrophe-loss-analysis](https://github.com/AwpDemon/catastrophe-loss-analysis)** — 67K insurance transactions; headline findings formally tested (Welch's t, bootstrap, chi-squared) plus a 20K-iteration hurricane Monte Carlo sizing a reinsurance layer against a 1-in-100 PML.
-- **[insurance-risk-model](https://github.com/AwpDemon/insurance-risk-model)** — hand-tuned actuarial scorecard backtested against logistic regression. Matches on ranking (AUC 0.83), *isn't* calibrated (Brier 0.12 vs 0.07) — and the README explains why and what to overlay.
-- **[retail-sql-analytics](https://github.com/AwpDemon/retail-sql-analytics)** — 8-table 3NF Postgres schema, 15 analytical queries (RFM churn, cohort retention, cross-sell lift), reproducible in <30 s via an in-memory DuckDB path.
-- **[student-budget-powerbi](https://github.com/AwpDemon/student-budget-powerbi)** — 11 DAX measures, 2-layer anomaly detection, Holt's-linear forecast with bootstrapped 80% prediction intervals.
-
-### Current focus
-
-Shipping more AI-agent infrastructure (the message broker above is growing into a proper multi-agent coordination layer), and deepening the stats that separate "I made a chart" from "I can defend a number in a meeting." Member of Gamma Iota Sigma (risk management & insurance fraternity) at UGA — that's where the insurance-flavored projects come from.
-
-Open to chatting about software, AI automation, data, or self-hosted infrastructure — reach me on [LinkedIn](https://www.linkedin.com/in/aliaskari3284).
+[LinkedIn](https://www.linkedin.com/in/aliaskari3284)
